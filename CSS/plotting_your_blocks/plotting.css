@@ -15,22 +15,29 @@
  background-color: green;
  margin-bottom: 20px;
 }
+
+#navigation, #main_content, .subcontents{
+    display: inline-block;
+    vertical-align: top;
+}
+
 #navigation{
  height: 300px;
  width: 200px;
  background-color: blue;
- display: inline-block;
+ /*display: inline-block;*/
 }
+
 #main_content{
  height: 400px;
- width: 720px;
+ width: 715px;
  background-color: red;
  margin-left: 20px;
  margin-bottom: 20px;
  padding-bottom: 30px;
  padding-right: 10px;
- display: inline-block;
- position: absolute;
+ /*display: inline-block;*/
+ /*position: absolute;*/
 }
 .subcontents{
  height: 205px;
@@ -39,7 +46,7 @@
  margin-left: 15px;
  margin-top: 20px;
  padding: 0px;
- display: inline-block;
+ /*display: inline-block;*/
 }
 #advertisement{
  height: 120px;
@@ -47,4 +54,6 @@
  margin-left: 15px;
  margin-top: 20px;
  background-color: purple;
-}
+
+
+ }
