@@ -33,10 +33,6 @@
             .text_size_links {
                 margin-left: 65px;
             }
-            /*.top_right p {
-                margin-left: 75px;
-                margin-bottom: 10px;
-            }*/
 
             .text_size {
                 color: #d2b100;
@@ -68,7 +64,6 @@
                 border-style: solid;
                 display:inline-block;
                 vertical-align: top;
-                /*padding-top: 10px;*/
             }
 
                 .search_bar p:first-child {
@@ -81,12 +76,9 @@
                 width: 35px;
                 height: 25px;
                 border-radius: 5px;
-                /*margin-left: 215px;*/
                 margin-top:  15px;
                 display: inline-block;
                 vertical-align: top;
-                /*vertical-align: top;*/
-                /*box-shadow: 10px 10px 0 0 black*/
                 border-left-color: #b8b8b8;
                 border-top-color: #b8b8b8;
                 border-bottom-color: #555455;
@@ -105,7 +97,6 @@
     height: 50px;
     background-color: #487eab;
     border-radius: 7px;
-    /*display: inline-block;*/
     margin-left: 70px;
     box-shadow: 2px 2px 2px 0 black
 
@@ -144,22 +135,12 @@
         margin: 7px;
     }
 
-    /*.main_content h2 br {
-        display: block;
-        margin: 10px 0;
-    }*/
 
 .left_links {
     width: 190px;
     margin-left: 40px;
     margin-top: 35px;
     display: inline-block;
-    /*position: absolute;
-    top:200px;
-    left: 270px;*/
-    /*text-align: center;*/
-
-    /*vertical-align: top;*/
 
 }
     .left_links li {
@@ -178,7 +159,6 @@
 
 .sub_content {
     background-color: #ffffff;
-    /*color: #000000;*/
     text-align: center;
     width: 960px;
     padding: 5px;
@@ -194,10 +174,7 @@
         border-top-style: solid;
         padding: 5px;
         font-size: 12px;
-        /*margin-right: 50px;*/
-        /*color: #89b5d9;*/
-
-    }
+        }
     .left {
         margin-left: 45px;
     }
@@ -213,8 +190,6 @@
         .left p, .right p {
             color: black;
         }
-
-
         .left li, .right li {
             width:200px;
             list-style:square;
@@ -225,32 +200,6 @@
         .links {
             color: #89b5d9;
         }
-        /*.left li:before, .right li:before {
-            content: "\25A0 \0020";
-            color: #000000;
-
-        }*/
-
-    /*.right {
-        width: 400px;
-        display: inline-block;
-    }
-        .right p {
-            color: #000000;
-        }
-
-        .right li   {
-            list-style: none;
-            color: #89b5d9;;
-        }
-        .right li:before {
-            content: "\25A0 \0020";
-            color: #000000;
-        }
-
-        .applications {
-            color: #000000;
-        }*/
         .pypi {
             color: #78a9d3;
         }
