@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+    <body>
+        <div class="main_content">
+            <form action='/users' method='POST'>
+                Your Name: <input type='text' name='name'>
+                <label "location">Dojo Location</label>
+                <select name = "location">
+                    <option value="Seattle">Seattle</option>
+                    <option value="The Valley">The Valley</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Dallas">Dallas</option>
+                    <option value="D.C.">D.C.</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Berkeley">Berkeley</option>
+                    <option value="The O.C.">The O.C.</option>
+                </select>
+                <label "languages">Favorite Language</label>
+                <select name = "language">
+                    <option value="Python">Python</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="C++">C++</option>
+                </select>
+                <label>Comment (optional):</label>
+                <textarea name ="comment" rows ="4" cols ="50">
+                    Insert comment here
+                </textarea>
+
+                <input type='submit' value='Button'>
+            </form>
+        </div>
+    </body>
+</html>
