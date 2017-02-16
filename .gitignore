@@ -1,2 +1,6 @@
 **/.DS_Store
 **/_venv
+**/virtualenvs
+virtualenvs/
+/virtualenvs
+virtualenvs

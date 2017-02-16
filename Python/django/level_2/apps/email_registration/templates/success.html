@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Successful Login!</title>
+    </head>
+    <body>
+        {% if process %}
+            <p>The email address you entered: <b>{{request.session.email}}</b> is valid, thank you!</p>
+        {% elif request.session.delete_link %}
+            <p>The email address: <b>{{request.session.email}}</b> has been deleted, thank you!</p>
+        {% endif %}
+        <h3>E-mail addresses entered:</h3>
+            <ul>{% for user in users %}
+                    <li>{{user.email}} {{user.created_at}}</li>
+                    <a href="/delete_email/{{user.id}}" method="POST">Delete Email</a>
+                {% endfor %}
+            </ul>
+        </form>
+    </body>
+</html>
