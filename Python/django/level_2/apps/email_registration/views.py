@@ -10,7 +10,7 @@ def index(request):
     print "hit index in apps/views"
 
 
-    return render(request, 'index.html')
+    return render(request, 'email_registration/index.html')
 
 def process(request):
     if request.method == 'POST':
@@ -27,7 +27,7 @@ def process(request):
                 "users": User.objects.all(),
                 "process": True
             }
-            return render(request, 'success.html', context)
+            return render(request, 'email_registration/success.html', context)
         # if not a valid email, redirect to /
         else:
             print "hit else statement in process, email not valid"
@@ -51,4 +51,4 @@ def delete_link(request, user_id):
     request.session['delete_link'] = True
 
 
-    return render(request, 'success.html', context)
+    return render(request, 'email_registration/success.html', context)
