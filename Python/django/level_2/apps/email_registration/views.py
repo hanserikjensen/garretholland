@@ -8,8 +8,6 @@ email_regex = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 def index(request):
     print "hit index in apps/views"
-
-
     return render(request, 'email_registration/index.html')
 
 def process(request):

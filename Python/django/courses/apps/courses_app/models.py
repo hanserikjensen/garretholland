@@ -9,20 +9,33 @@ class CourseManager(models.Manager):
         course.save()
         return course
 
+
     def add_description(self, description):
         print "!!!! hit CourseManager add_description !!!!"
         description = Description.objects.create(description=description)
         print "!!!!description is -------------->>>>>", description
-        # description = Description(description=description)
-        # description.save()
+
         return description
+
+
+    def destroy_course(self, course):
+        course_destroy = Course.objects.filter(id=course).delete()
+
+
+    def create_comment(self, comment, course_id):
+        comment = Comments.objects.create(comment=comment)
+        print ">>>>>>>>>>>comment is -------->>>>>>>>>>>", comment
+        print ">>>>>>>>>>>comment.id is ----->>>>>>>>>>>", commment.id
+        # comment = Comments(comment=comment)
+        # comment.save()
+        return comment
+
 
 # Create your models here.
 class Course(models.Model):
     course_name = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
 
     objects = CourseManager()
 
@@ -38,14 +51,20 @@ class Description(models.Model):
 
     objects = CourseManager()
 
+    def __str__(self):
+        return self.description
+
 class Comments(models.Model):
-    comment = models.TextField()
+    comment = models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE,)
 
     objects = CourseManager()
+
+    def __str__(self):
+        return self.comment
 
 # class Restaurant(models.Model):
 #     place = models.OneToOneField(

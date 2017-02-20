@@ -12,16 +12,23 @@
             <p>Description</p>
             <textarea name="description" rows="8" cols="80"></textarea>
             <input type="submit" name="submit" value="Add">
-            <p>yay a form!</p>
         </form>
-        <form class="" action="/delete_course" method="POST">
             <h2>Courses:</h2>
             <ul>
                 {% for course in courses %}
-                    <li>{{course.course_name}} {{description.description}}</li>
+                    <li><b>Course Name:</b> {{course.course_name}} Course</li>
+                    <li><b>Description:</b> {{course.description}}</li>
+                    <b>Comment:</b><br>
+                    {% for comment in comments %}
+                        <li>{{comment}}</li>
+                    {% endfor %}
+                    <form class="" action="create_comment/{{course.id}}" method="post">
+                        {% csrf_token %}
+                        <textarea name="comment" rows="1" cols="80"></textarea>
+                        <input type="submit" name="submit" value="submit">
+                        <a href="/courses/destroy/{{course.id}}">Delete Course</a>
+                    </form>
                 {% endfor %}
             </ul>
-
-        </form>
     </body>
 </html>
