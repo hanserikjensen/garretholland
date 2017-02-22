@@ -5,11 +5,7 @@
         <title>Login & Reg | Success</title>
     </head>
     <body>
-        <h1>Success! Welcome {{request.session.name}}</h1>
-        {% if request.session.register %}
-        <h3>Successfully registered!</h3>
-        {% else %}
-        <h3>Successfully logged in!</h3>
-        {% endif %}
+        <h1>Success! Welcome {{name}}</h1>
+        <h3>{{logged_in}}{{registered}}!</h3>
     </body>
 </html>

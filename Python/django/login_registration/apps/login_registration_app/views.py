@@ -8,7 +8,9 @@ def index(request):
 
 
 def success(request):
-    return render(request, 'success.html')
+    context = request.session['context']
+
+    return render(request, 'success.html', context)
 
 
 def process(request):
@@ -20,8 +22,13 @@ def process(request):
             data = User.objects.register(request.POST)
 
             if data[0] == True:
-                request.session['name'] = data[1].firstname
-                request.session['register'] = True
+
+                context = {
+                    "name": data[1].firstname,
+                    "registered": "Successfully registered!",
+                }
+                # request.session['name'] = data[1].firstname
+                request.session['context'] = context
 
                 return redirect('/success')
 
@@ -29,14 +36,18 @@ def process(request):
                 for err in data[1]:
                     messages.error(request, err)
 
-        if request.POST.get('login'):
+        elif request.POST.get('login'):
             print ">>>>>>>>>>>>hit login in process<<<<<<<<<"
 
             data = User.objects.login(request.POST)
 
             if data[0] == True:
-                request.session['name'] = data[1].firstname
-                request.session['login'] = True
+                context = {
+                    "name": data[1].firstname,
+                    "logged_in": "Successfully logged in!",
+                }
+
+                request.session['context'] = context
 
                 return redirect('/success')
 
@@ -45,14 +56,11 @@ def process(request):
                     messages.error(request, err)
 
 
-
-
         return redirect('/')
 
-
-
-
-
-
-        if request.POST.get('login'):
-            print ">>>>>>>>hit login in process<<<<<<<<<<"
+# def logout(request):
+#     try:
+#         del request.session['member_id']
+#     except KeyError:
+#         pass
+#     return HttpResponse("You're logged out.")

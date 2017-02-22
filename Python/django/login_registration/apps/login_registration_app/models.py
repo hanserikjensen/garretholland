@@ -26,6 +26,11 @@ class UserManager(models.Manager):
         if not re.match(EMAIL_REGEX, data['email']):
             errors.append('Please input a valid email address')
 
+        user = User.objects.filter(email=data['email'])
+
+        if user:
+            errors.append('User already exists')
+
         if not re.match(PASSWORD_REGEX, data['password']):
             errors.append('Password not valid, reqs are: 8 characters minimum, 1 upper, 1 lower, and 1 number')
 
@@ -54,12 +59,14 @@ class UserManager(models.Manager):
         try:
             user = User.objects.get(email=data['email'])
             print ">>>>>>>>user is----->>>>>>>", user
+
+            print ">>>>>>>password is-------->>>>>>>", user.password
         except NameError:
             errors.append("Username/Password combo is invalid")
             print "errors are------->>>>>>>>", errors
 
 
-        if bcrypt.hashpw(data['password'], password) != password:
+        if bcrypt.hashpw(data['password'].encode('utf-8'), user.password.encode('utf-8')) != user.password:
             errors.append("Username/Password combo is invalid")
 
         if errors:
@@ -80,7 +87,4 @@ class User(models.Model):
     objects = UserManager()
 
     def __str__(self):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.password = password
-        return self
+        return self.firstname
